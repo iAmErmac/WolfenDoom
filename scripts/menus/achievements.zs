@@ -164,7 +164,7 @@ class AchievementSummary : BoAMenu
 
 			shorttitle = shorttitle .. "...";
 		}
-		screen.DrawText(titlefont, ach.complete ? Font.CR_GOLD : Font.CR_DARKGRAY, int(pos.x + (spacing * 2 + iconwidth) * scale), int(pos.y + (size.y - titlefont.GetHeight() * titlescale) / 2), ZScriptTools.StripColorCodes(shorttitle), DTA_Alpha, alpha, DTA_ScaleX, titlescale, DTA_ScaleY, titlescale, DTA_ClipTop, drawtop, DTA_ClipBottom, drawbottom);
+		screen.DrawText(titlefont, ach.complete ? Font.CR_GOLD : Font.CR_DARKGRAY, int(pos.x + (spacing * 2 + iconwidth) * scale), int(pos.y + (size.y - titlefont.GetHeight() * titlescale) / 2), ZScriptTools.StripColorCodes(shorttitle), DTA_Alpha, alpha, DTA_ClipTop, drawtop, DTA_ClipBottom, drawbottom);
 
 		// Get and draw icon
 		TextureID icon = TexMan.CheckForTexture(ach.icon);
@@ -281,7 +281,7 @@ class AchievementSummary : BoAMenu
 		{
 			timevalue = SystemTime.Format("%d %b %Y, %T", ach.value);
 			timewidth = timevalue.length() * charsize;
-			screen.DrawText(captionfont, Font.CR_GOLD, int(pos.x + size.x - timewidth * captionscale), int(pos.y), timevalue, DTA_Alpha, alpha, DTA_ScaleX, captionscale, DTA_ScaleY, captionscale, DTA_ClipTop, drawtop, DTA_ClipBottom, drawbottom, DTA_Monospace, 2, DTA_Spacing, charsize);
+			screen.DrawText(captionfont, Font.CR_GOLD, int(pos.x + size.x - timewidth * captionscale), int(pos.y), timevalue, DTA_Alpha, alpha, DTA_ClipTop, drawtop, DTA_ClipBottom, drawbottom, DTA_Monospace, 2, DTA_Spacing, charsize);
 		}
 		else
 		{
@@ -294,12 +294,12 @@ class AchievementSummary : BoAMenu
 				)
 				{
 					valuewidth = captionfont.StringWidth(value);
-					screen.DrawText(captionfont, Font.CR_DARKGRAY, int(pos.x + size.x - valuewidth * captionscale), int(pos.y), value, DTA_Alpha, alpha, DTA_ScaleX, captionscale, DTA_ScaleY, captionscale, DTA_ClipTop, drawtop, DTA_ClipBottom, drawbottom);	
+					screen.DrawText(captionfont, Font.CR_DARKGRAY, int(pos.x + size.x - valuewidth * captionscale), int(pos.y), value, DTA_Alpha, alpha, DTA_ClipTop, drawtop, DTA_ClipBottom, drawbottom);	
 				}
 				else
 				{
 					valuewidth = value.length() * charsize;
-					screen.DrawText(captionfont, Font.CR_DARKGRAY, int(pos.x + size.x - valuewidth * captionscale), int(pos.y), value, DTA_Alpha, alpha, DTA_ScaleX, captionscale, DTA_ScaleY, captionscale, DTA_ClipTop, drawtop, DTA_ClipBottom, drawbottom, DTA_Monospace, 2, DTA_Spacing, charsize);
+					screen.DrawText(captionfont, Font.CR_DARKGRAY, int(pos.x + size.x - valuewidth * captionscale), int(pos.y), value, DTA_Alpha, alpha, DTA_ClipTop, drawtop, DTA_ClipBottom, drawbottom, DTA_Monospace, 2, DTA_Spacing, charsize);
 				}
 			}
 		}
@@ -317,7 +317,7 @@ class AchievementSummary : BoAMenu
 
 		for (int l = 0; l < lines.Count(); l++)
 		{
-			screen.DrawText(titlefont, Font.CR_GOLD, int(pos.x), int(pos.y), ZScriptTools.StripColorCodes(lines.StringAt(l)), DTA_Alpha, alpha, DTA_ScaleX, titlescale, DTA_ScaleY, titlescale, DTA_ClipTop, drawtop, DTA_ClipBottom, drawbottom);
+			screen.DrawText(titlefont, Font.CR_GOLD, int(pos.x), int(pos.y), ZScriptTools.StripColorCodes(lines.StringAt(l)), DTA_Alpha, alpha, DTA_ClipTop, drawtop, DTA_ClipBottom, drawbottom);
 			pos.y += lineheight;
 		}
 
@@ -329,7 +329,7 @@ class AchievementSummary : BoAMenu
 
 		for (int l = 0; l < lines.Count(); l++)
 		{
-			screen.DrawText(textfont, Font.CR_GRAY, int(pos.x), int(pos.y), ZScriptTools.StripColorCodes(lines.StringAt(l)), DTA_Alpha, alpha, DTA_ScaleX, textscale, DTA_ScaleY, textscale, DTA_ClipTop, drawtop, DTA_ClipBottom, drawbottom);
+			screen.DrawText(textfont, Font.CR_GRAY, int(pos.x), int(pos.y), ZScriptTools.StripColorCodes(lines.StringAt(l)), DTA_Alpha, alpha, DTA_ClipTop, drawtop, DTA_ClipBottom, drawbottom);
 			pos.y += lineheight;
 		}
 
@@ -384,15 +384,15 @@ class AchievementSummary : BoAMenu
 					break;
 				case AchievementTracker.ACH_LIQUIDDEATH:
 					valuewidth = captionfont.StringWidth(value);
-					screen.DrawText(captionfont, Font.CR_DARKGRAY, int(drawright - valuewidth * captionscale - spacing * 2 * scale), int(pos.y), value, DTA_Alpha, alpha, DTA_ScaleX, captionscale, DTA_ScaleY, captionscale, DTA_ClipTop, drawtop, DTA_ClipBottom, drawbottom);
+					screen.DrawText(captionfont, Font.CR_DARKGRAY, int(drawright - valuewidth * captionscale - spacing * 2 * scale), int(pos.y), value, DTA_Alpha, alpha, DTA_ClipTop, drawtop, DTA_ClipBottom, drawbottom);
 					break;
 				default:
 					valuewidth = value.length() * charsize;
-					screen.DrawText(captionfont, Font.CR_DARKGRAY, int(drawright - valuewidth * captionscale - spacing * 2 * scale), int(pos.y), value, DTA_Alpha, alpha, DTA_ScaleX, captionscale, DTA_ScaleY, captionscale, DTA_ClipTop, drawtop, DTA_ClipBottom, drawbottom, DTA_Monospace, 2, DTA_Spacing, charsize);
+					screen.DrawText(captionfont, Font.CR_DARKGRAY, int(drawright - valuewidth * captionscale - spacing * 2 * scale), int(pos.y), value, DTA_Alpha, alpha, DTA_ClipTop, drawtop, DTA_ClipBottom, drawbottom, DTA_Monospace, 2, DTA_Spacing, charsize);
 					break;
 			}
 		}
-		screen.DrawText(captionfont, Font.CR_GOLD, int(pos.x), int(pos.y), timevalue, DTA_Alpha, alpha, DTA_ScaleX, captionscale, DTA_ScaleY, captionscale, DTA_ClipTop, drawtop, DTA_ClipBottom, drawbottom, DTA_Monospace, 2, DTA_Spacing, charsize);
+		screen.DrawText(captionfont, Font.CR_GOLD, int(pos.x), int(pos.y), timevalue, DTA_Alpha, alpha, DTA_ClipTop, drawtop, DTA_ClipBottom, drawbottom, DTA_Monospace, 2, DTA_Spacing, charsize);
 
 		// Cheat warning message
 		[text, lines] = BrokenString.BreakString(StringTable.Localize("ACHIEVEMENTINFO", false), textwidth, false, "L", textfont);
@@ -401,7 +401,7 @@ class AchievementSummary : BoAMenu
 
 		for (int l = 0; l < lines.Count(); l++)
 		{
-			screen.DrawText(textfont, Font.CR_GRAY, int(pos.x + textwidth * scale / 2 - lines.StringWidth(l) * scale / 2), int(pos.y), lines.StringAt(l), DTA_Alpha, alpha, DTA_ScaleX, textscale, DTA_ScaleY, textscale, DTA_ClipTop, drawtop, DTA_ClipBottom, drawbottom);
+			screen.DrawText(textfont, Font.CR_GRAY, int(pos.x + textwidth * scale / 2 - lines.StringWidth(l) * scale / 2), int(pos.y), lines.StringAt(l), DTA_Alpha, alpha, DTA_ClipTop, drawtop, DTA_ClipBottom, drawbottom);
 			pos.y += lineheight;
 		}
 	}

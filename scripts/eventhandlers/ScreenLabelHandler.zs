@@ -812,7 +812,7 @@ class ScreenLabelHandler : EventHandler
 							if (dist > 256) { alpha *= 1.0 - (dist - 256) / 512; }
 
 							String playername = mo.player.GetUserName();
-							screen.DrawText(BigFont, Font.FindFontColor("RedandWhite"), drawpos.x - BigFont.StringWidth(playername) * scale / 2, drawpos.y, playername, DTA_ScaleX, scale, DTA_ScaleY, scale, DTA_Alpha, alpha * 1.25);
+							screen.DrawText(BigFont, Font.FindFontColor("RedandWhite"), drawpos.x - BigFont.StringWidth(playername) * scale / 2, drawpos.y, playername, DTA_Alpha, alpha * 1.25);
 						}
 					}
 					break;
@@ -860,7 +860,7 @@ class ScreenLabelHandler : EventHandler
 							for (int s = 0; s < lines.Count(); s++)
 							{
 								String line = lines.StringAt(s);
-								screen.DrawText(tinyfont, Font.CR_WHITE, drawpos.x, drawpos.y + s * lineheight, line, DTA_ScaleX, textscale, DTA_ScaleY, textscale, DTA_Alpha, alpha);
+								screen.DrawText(tinyfont, Font.CR_WHITE, drawpos.x, drawpos.y + s * lineheight, line, DTA_Alpha, alpha);
 							}
 						}
 					}
@@ -1067,7 +1067,7 @@ class ScreenLabelHandler : EventHandler
 						for (int s = 0; s < lines.Count(); s++)
 						{
 							String line = lines.StringAt(s);
-							screen.DrawText(fnt, Font.CR_WHITE, drawpos.x - fnt.StringWidth(line) * textscale / 2, drawpos.y + s * lineheight, line, DTA_ScaleX, textscale, DTA_ScaleY, textscale, DTA_Alpha, alpha);
+							screen.DrawText(fnt, Font.CR_WHITE, drawpos.x - fnt.StringWidth(line) * textscale / 2, drawpos.y + s * lineheight, line, DTA_Alpha, alpha);
 						}
 					}
 					break;

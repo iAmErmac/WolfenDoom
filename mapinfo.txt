@@ -56,7 +56,7 @@ gameinfo
 	QuitMessages = "$QUITMSG", "$QUITMSG1", "$QUITMSG2", "$QUITMSG3", "$QUITMSG4", "$QUITMSG5", "$QUITMSG6", 
 	"$QUITMSG7", "$QUITMSG8", "$QUITMSG9", "$QUITMSG10", "$QUITMSG11", "$QUITMSG12", "$QUITMSG13", "$QUITMSG14"
 
-	Intro { Video = "movies/gzdoom.ivf" }
+	//Intro { Video = "movies/gzdoom.ivf" }
 }
 
 Automap
@@ -160,7 +160,7 @@ defaultmap
 	compat_trace = 0
 
 	// Force SSAO being disabled in skyboxes
-	disableskyboxao
+	//disableskyboxao
 }
 
 map INTERMAP lookup "INTERMAP"	//Tormentor667, MaxED & DoomJuan - Ed The Bat, Talon1024 & Ozy81 for minor edits

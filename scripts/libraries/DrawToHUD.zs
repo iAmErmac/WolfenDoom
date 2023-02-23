@@ -177,7 +177,7 @@ class DrawToHUD
 				if (buttonend > -1 && buttonstart > -1)
 				{
 					String segment = line.left(buttonstart);
-					screen.DrawText(fnt, shade, int(screenpos.x + lineoffset * scale.x), int(screenpos.y), segment, DTA_KeepRatio, true, DTA_Alpha, alpha, DTA_ScaleX, scale.x, DTA_ScaleY, scale.y);
+					screen.DrawText(fnt, shade, int(screenpos.x + lineoffset * scale.x), int(screenpos.y), segment, DTA_KeepRatio, true, DTA_Alpha, alpha);
 					lineoffset += SmallFont.StringWidth(segment);
 
 					String cmd = line.Mid(buttonstart + 2, buttonend - buttonstart - 2);
@@ -187,14 +187,14 @@ class DrawToHUD
 				}
 				else
 				{
-					screen.DrawText(fnt, shade, int(screenpos.x + lineoffset * scale.x), int(screenpos.y), line, DTA_KeepRatio, true, DTA_Alpha, alpha, DTA_ScaleX, scale.x, DTA_ScaleY, scale.y);
+					screen.DrawText(fnt, shade, int(screenpos.x + lineoffset * scale.x), int(screenpos.y), line, DTA_KeepRatio, true, DTA_Alpha, alpha);
 					line = "";
 				}
 			}
 		}
 		else
 		{
-			screen.DrawText(fnt, shade, int(screenpos.x), int(screenpos.y), text, DTA_KeepRatio, true, DTA_Alpha, alpha, DTA_ScaleX, scale.x, DTA_ScaleY, scale.y);
+			screen.DrawText(fnt, shade, int(screenpos.x), int(screenpos.y), text, DTA_KeepRatio, true, DTA_Alpha, alpha);
 		}
 	}
 
@@ -236,8 +236,8 @@ class DrawToHUD
 		}
 
 		// Draw the texture
-		if (flags & TEX_CENTERED) { screen.DrawTexture(tex, true, screenpos.x, screenpos.y, DTA_DestWidth, int(desttexsize.x), DTA_DestHeight, int(desttexsize.y), DTA_Alpha, alpha, DTA_CenterOffset, true, DTA_AlphaChannel, alphachannel, DTA_FillColor, shade, DTA_ScaleX, scale.x, DTA_ScaleY, scale.y); }
-		else { screen.DrawTexture(tex, true, screenpos.x, screenpos.y, DTA_DestWidth, int(desttexsize.x), DTA_DestHeight, int(desttexsize.y), DTA_Alpha, alpha, DTA_TopOffset, 0, DTA_LeftOffset, 0, DTA_AlphaChannel, alphachannel, DTA_FillColor, shade, DTA_ScaleX, scale.x, DTA_ScaleY, scale.y); }
+		if (flags & TEX_CENTERED) { screen.DrawTexture(tex, true, screenpos.x, screenpos.y, DTA_DestWidth, int(desttexsize.x), DTA_DestHeight, int(desttexsize.y), DTA_Alpha, alpha, DTA_CenterOffset, true, DTA_AlphaChannel, alphachannel, DTA_FillColor, shade); }
+		else { screen.DrawTexture(tex, true, screenpos.x, screenpos.y, DTA_DestWidth, int(desttexsize.x), DTA_DestHeight, int(desttexsize.y), DTA_Alpha, alpha, DTA_TopOffset, 0, DTA_LeftOffset, 0, DTA_AlphaChannel, alphachannel, DTA_FillColor, shade); }
 	}
 
 	static ui void DrawTransformedTexture(TextureID tex, Vector2 pos, double alpha = 1.0, double ang = 0, double scale = 1.0, color shade = -1, int cliptop = 0, int clipleft = 0, int clipbottom = 0x7FFFFFFF, int clipright = 0x7FFFFFFF, int flags = TEX_DEFAULT)
@@ -272,7 +272,7 @@ class DrawToHUD
 		if (clipright < 0) { clipright += Screen.GetWidth(); }
 
 		// Draw rotated texture
-		Screen.DrawTexture(tex, true, screenpos.x, screenpos.y, DTA_CenterOffset, true, DTA_Rotate, -ang, DTA_DestWidth, int(screensize.x), DTA_DestHeight, int(screensize.y), DTA_Alpha, alpha, DTA_AlphaChannel, alphachannel, DTA_FillColor, shade, DTA_ClipTop, cliptop, DTA_ClipLeft, clipleft, DTA_ClipBottom, clipbottom, DTA_ClipRight, clipright);
+		Screen.DrawTexture(tex, true, screenpos.x, screenpos.y, DTA_CenterOffset, true, DTA_DestWidth, int(screensize.x), DTA_DestHeight, int(screensize.y), DTA_Alpha, alpha, DTA_AlphaChannel, alphachannel, DTA_FillColor, shade, DTA_ClipTop, cliptop, DTA_ClipLeft, clipleft, DTA_ClipBottom, clipbottom, DTA_ClipRight, clipright);
 	}
 
 	static ui void Dim(Color clr = 0x000000, double alpha = 0.5, double x = 0, double y = 0, double w = -1, double h = -1, Vector2 destsize = (-1, -1), int flags = TEX_DEFAULT)
@@ -720,7 +720,7 @@ class DrawToHUD
 
 			// Create the button object for the key bind
 			Button b;
-			if (KeyPromptFont.GetGlyphHeight(keycodes[k])) // If there's a dedicated key prompt graphic, use it
+			/*if (KeyPromptFont.GetGlyphHeight(keycodes[k])) // If there's a dedicated key prompt graphic, use it
 			{
 				b = Button.Create(String.Format("%c", keycodes[k]), KeyPromptFont, "", buttonscale, "");
 				if (b)
@@ -730,7 +730,7 @@ class DrawToHUD
 					b.labeloffset = b.width / 2;
 				}
 			}
-			else
+			else*/
 			{
 				// Add characters to the label names for some key binds so that they better reflect
 				// the physical key that they are meant to represent

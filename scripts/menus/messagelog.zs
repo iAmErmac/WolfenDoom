@@ -180,27 +180,27 @@ class MessageLogMenu : GenericMenu
 				double textXpos = xpos + xoffsets[line] * scaleX;
 				if (lines[line] == "")
 				{ // Draw a separator
-					Screen.DrawText(smallfont, Font.CR_GRAY, textXpos, ypos, "", DTA_ScaleX, scaleX, DTA_ScaleY, scaleY);
+					Screen.DrawText(smallfont, Font.CR_GRAY, textXpos, ypos, "");
 					textXpos += smallfont.GetCharWidth(0xE000) * scaleX;
 					int endSepWidth = int(smallfont.GetCharWidth(0xE002) * scaleX);
 					while (textXpos < (msgWidth + xpos - endSepWidth))
 					{
-						Screen.DrawText(smallfont, Font.CR_GRAY, textXpos, ypos, "", DTA_ScaleX, scaleX, DTA_ScaleY, scaleY);
+						Screen.DrawText(smallfont, Font.CR_GRAY, textXpos, ypos, "");
 						textXpos += smallfont.GetCharWidth(0xE001) * scaleX;
 					}
-					Screen.DrawText(smallfont, Font.CR_GRAY, textXpos, ypos, "", DTA_ScaleX, scaleX, DTA_ScaleY, scaleY);
+					Screen.DrawText(smallfont, Font.CR_GRAY, textXpos, ypos, "");
 				}
 				else
 				{
 					// Draw text
-					Screen.DrawText(smallfont, Font.CR_GRAY, textXpos, ypos, lines[line], DTA_ScaleX, scaleX, DTA_ScaleY, scaleY);
+					Screen.DrawText(smallfont, Font.CR_GRAY, textXpos, ypos, lines[line]);
 					// Draw image
 					String lineNumString = String.Format("%d", line);
 					String imageName = images.At(lineNumString);
 					if (imageName.Length())
 					{
 						TextureID imageTexture = TexMan.CheckForTexture(imageName);
-						Screen.DrawTexture(imageTexture, true, xpos, ypos, DTA_ScaleX, scaleX, DTA_ScaleY, scaleY);
+						Screen.DrawTexture(imageTexture, true, xpos, ypos);
 						// Draw border around image (debug)
 						/*
 						int imageWidth, imageHeight;
@@ -246,7 +246,7 @@ class MessageLogMenu : GenericMenu
 			String emptyLogText = StringTable.Localize("MESSAGELOGEMPTY", false);
 			double xpos = (Screen.GetWidth() / 2) - (smallfont.StringWidth(emptyLogText) * scaleX / 2);
 			double ypos = (Screen.GetHeight() / 2) - (smallfont.GetHeight() * scaleY / 2);
-			Screen.DrawText(smallfont, Font.CR_GRAY, xpos, ypos, emptyLogText, DTA_ScaleX, scaleX, DTA_ScaleY, scaleY);
+			Screen.DrawText(smallfont, Font.CR_GRAY, xpos, ypos, emptyLogText);
 		}
 		Super.Drawer(); // "Back" button
 	}

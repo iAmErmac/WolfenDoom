@@ -243,7 +243,7 @@ class CombinationSafe : BoAMenu
 
 			if (spinner)
 			{
-				Screen.DrawTexture(spinner, false, location.x, location.y, DTA_CenterOffset, true, DTA_Rotate, angle, DTA_ScaleX, scale, DTA_ScaleY, scale);
+				Screen.DrawTexture(spinner, false, location.x, location.y, DTA_CenterOffset, true);
 			}
 
 			if (spinnerfront)

@@ -114,10 +114,10 @@ class UnderlayRenderer : EventHandler
 
 		if (o.flags & Overlay.Fit) // scale to fit the screen at the narrowest dimension, maintaining aspect ratio
 		{
-			screen.DrawTexture(image, true, o.offsets.x, o.offsets.y, DTA_FullScreenEx, FSMode_ScaleToFill, DTA_Alpha, drawalpha, DTA_Rotate, o.angle, DTA_AlphaChannel, alphachannel, DTA_FillColor, o.clr);
+			screen.DrawTexture(image, true, o.offsets.x, o.offsets.y, DTA_FullScreenEx, DTA_Alpha, drawalpha, DTA_AlphaChannel, alphachannel, DTA_FillColor, o.clr);
 
 			// Darken the mask graphic in dark sectors by drawing it again as a black silhouette.
-			if (blackalpha && o.flags & Overlay.LightEffects) { screen.DrawTexture(image, true, o.offsets.x, o.offsets.y, DTA_FullScreenEx, FSMode_ScaleToFill, DTA_Alpha, blackalpha, DTA_Rotate, o.angle, DTA_FillColor, 0); }
+			if (blackalpha && o.flags & Overlay.LightEffects) { screen.DrawTexture(image, true, o.offsets.x, o.offsets.y, DTA_FullScreenEx, DTA_Alpha, blackalpha, DTA_FillColor, 0); }
 		}
 		else if (o.flags & Overlay.Force320x200) // This is basically the old gas mask and space suit drawing code by Talon1024
 		{
@@ -136,8 +136,7 @@ class UnderlayRenderer : EventHandler
 				DTA_VirtualHeight, 200,
 				DTA_VirtualWidth, vWidth,
 				DTA_KeepRatio, true, 
-				DTA_Alpha, drawalpha, 
-				DTA_Rotate, o.angle,
+				DTA_Alpha, drawalpha,
 				DTA_AlphaChannel, alphachannel,
 				DTA_FillColor, o.clr);
 
@@ -149,8 +148,7 @@ class UnderlayRenderer : EventHandler
 					DTA_VirtualHeight, 200,
 					DTA_VirtualWidth, vWidth,
 					DTA_KeepRatio, true, 
-					DTA_Alpha, blackalpha, 
-					DTA_Rotate, o.angle,
+					DTA_Alpha, blackalpha,
 					DTA_FillColor, 0);
 			}
 		}
@@ -159,10 +157,10 @@ class UnderlayRenderer : EventHandler
 			int height = int(Screen.GetHeight());
 			int width = int(Screen.GetWidth());
 
-			screen.DrawTexture(image, true, o.offsets.x, o.offsets.y, DTA_DestWidth, width, DTA_DestHeight, height, DTA_Alpha, drawalpha, DTA_Rotate, o.angle, DTA_AlphaChannel, alphachannel, DTA_FillColor, o.clr);
+			screen.DrawTexture(image, true, o.offsets.x, o.offsets.y, DTA_DestWidth, width, DTA_DestHeight, height, DTA_Alpha, drawalpha, DTA_AlphaChannel, alphachannel, DTA_FillColor, o.clr);
 			
 			// Darken the mask graphic in dark sectors by drawing it again as a black silhouette.
-			if (blackalpha && o.flags & Overlay.LightEffects) { screen.DrawTexture(image, true, o.offsets.x, o.offsets.y, DTA_DestWidth, width, DTA_DestHeight, height, DTA_Alpha, blackalpha, DTA_Rotate, o.angle, DTA_FillColor, 0); }
+			if (blackalpha && o.flags & Overlay.LightEffects) { screen.DrawTexture(image, true, o.offsets.x, o.offsets.y, DTA_DestWidth, width, DTA_DestHeight, height, DTA_Alpha, blackalpha, DTA_FillColor, 0); }
 		}
 	}
 
